@@ -275,7 +275,11 @@ static NSThread *newJavaScriptThread(void)
     if (!self.valid) {
       return;
     }
-
+    
+    if (self.bridge && !self.bridge.isValid) {
+        return;
+    }
+    
     JSGlobalContextRef contextRef = nullptr;
     JSContext *context = nil;
     if (self->_context) {
@@ -596,6 +600,9 @@ RCT_EXPORT_METHOD(setContextName:(nonnull NSString *)contextName)
       }
     } else {
       if (!errorJSRef && JSC_JSValueGetType(ctx, batchedBridgeRef) == kJSTypeUndefined) {
+        if (self.bridge && !self.bridge.isValid) {
+          return;
+        }
         error = RCTErrorWithMessage(@"Unable to execute JS call: __fbBatchedBridge is undefined. This can happen "
                                     "if you try to execute JS and the bridge has not set up, for example if it encountered "
                                     "an incomplete bundle or a fatal script execution error during startup. Verify that a "
