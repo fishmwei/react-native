@@ -43,6 +43,7 @@
 #import "RCTJSCHelpers.h"
 #import "RCTMessageThread.h"
 #import "RCTObjcExecutor.h"
+#import "RCTCxxBridge.h"
 
 #ifdef WITH_FBSYSTRACE
 #import <React/RCTFBSystrace.h>

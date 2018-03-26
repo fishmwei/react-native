@@ -276,7 +276,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 
 - (Class)bridgeClass
 {
-  return [RCTCxxBridge class];
+  return NSClassFromString(@"RCTCxxBridge");
 }
 
 - (void)setUp
