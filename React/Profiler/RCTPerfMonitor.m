@@ -16,7 +16,6 @@
 #import <mach/mach.h>
 
 #import "RCTBridge.h"
-#import "RCTDevSettings.h"
 #import "RCTFPSGraph.h"
 #import "RCTInvalidating.h"
 #import "RCTJavaScriptExecutor.h"
@@ -28,6 +27,7 @@
 
 #if __has_include("RCTDevMenu.h")
 #import "RCTDevMenu.h"
+#import "RCTDevSettings.h"
 #endif
 
 static NSString *const RCTPerfMonitorCellIdentifier = @"RCTPerfMonitorCellIdentifier";

@@ -76,6 +76,8 @@ RCT_EXTERN void RCTVerifyAllModulesExported(NSArray *extraModules);
 
 @interface RCTBridge (RCTCxxBridge)
 
+- (instancetype)initWithParentBridge:(RCTBridge *)bridge;
+
 /**
  * Used by RCTModuleData
  */
@@ -156,8 +158,3 @@ RCT_EXTERN void RCTVerifyAllModulesExported(NSArray *extraModules);
 
 @end
 
-@interface RCTCxxBridge : RCTBridge
-
-- (instancetype)initWithParentBridge:(RCTBridge *)bridge NS_DESIGNATED_INITIALIZER;
-
-@end
